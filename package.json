@@ -1,0 +1,22 @@
+{
+  "author": "Hainish",
+  "name": "gitplumb",
+  "description": "visualization for github repos",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Hainish/gitplumb.git"
+  },
+  "main": "app.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "engines": {
+    "node": "~v0.4.6"
+  },
+  "dependencies": {
+    "express" : ">=2.3.12",
+    "jade" : ">=0.12.4"
+  },
+  "devDependencies": {}
+}
