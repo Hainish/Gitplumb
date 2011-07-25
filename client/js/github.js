@@ -26,19 +26,20 @@ var github = {
       url: github.options.host + github.options.path,
       dataType: 'jsonp',
       success: function(res){
-        github.response = res.data;
-        github.handle_response();
+        github.handle_response(res);
       },
       error: function(err){
         alert("An error was encountered while accessing github.");
       }
     });
   },
-  handle_response: function(){
-    if(github.response.message != undefined){
+  handle_response: function(res){
+    if(res.message != undefined){
       alert(github.response.message);
     } else {
-      console.log(github.response);
+      plumbtree.response = res;
+      plumbtree.render();
+      console.log(plumbtree.response);
     }
   }
 };
