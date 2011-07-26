@@ -12,11 +12,6 @@ var github = {
   set_repo: function(repo){
     github.__internal_options.repo = repo;
   },
-  set_user_repo_update: function(user, repo){
-    github.set_repo(repo);
-    github.set_user(user);
-    github.update_options();
-  },
   update_options: function(){
     github.options.path = '/repos/' + github.__internal_options.user +
       '/' + github.__internal_options.repo + '/commits';
@@ -33,13 +28,18 @@ var github = {
       }
     });
   },
+  set_and_request: function(user, repo){
+    github.set_user(user);
+    github.set_repo(repo);
+    github.update_options();
+    github.request();
+  },
   handle_response: function(res){
     if(res.message != undefined){
       alert(github.response.message);
     } else {
       plumbtree.response = res;
       plumbtree.render();
-      console.log(plumbtree.response);
     }
   }
 };
